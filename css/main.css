@@ -1,0 +1,112 @@
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    max-width: 800px;
+    width: 90%;
+}
+
+.game-screen:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.num-board {
+    display: table;  
+    margin: 0 auto;
+    margin-top: 20px;  
+    margin-bottom: 20px;
+    text-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #f5f5f5;
+    border-radius: 8px;  
+    padding: 15px;  
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.num-board td {
+    padding: 10px 15px;  
+    border: 1px solid #ddd;  
+    font-size: 18px;  
+    transition: background-color 0.2s;  
+}
+
+.num-board td:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.timer{
+    font-size: large;
+
+}
+
+.new-game {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: black;  
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.new-game:hover {
+    background-color: whitesmoke;  
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.new-game:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.difficulty{
+    font-style:inherit;
+    font-size: 25px;
+}
+
+.btns-space{
+    padding: 7px 15px;
+}
+.btns{
+    padding: 7px 15px;
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.btns:hover{
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

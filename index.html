@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="game-screen">
+        <div class="title"><h1>Touch Em!!</h1></div>
+        <div class="next-num"> <h2>Next Number:</h2></div>
+        <div class="num-board">
+            <table>
+                <tbody id="matrix-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="timer">00:000</div>
+        <div class="start-button">
+            <button onclick="newGameBtn(this)" class="new-game">New Game</button>
+        </div>
+        <div class="difficulty">Difficulty</div>
+        <div class="btns-space">
+            <button class="btns" onclick="difficulityBtn(this)">9</button>
+            <button class="btns" onclick="difficulityBtn(this)">16</button>
+            <button class="btns" onclick="difficulityBtn(this)">25</button>
+            <button class="btns" onclick="difficulityBtn(this)">36</button>
+        </div>
+    </div>
+    
+</body>
+<script src="js/main.js"></script>
+</html>

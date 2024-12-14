@@ -9,15 +9,16 @@ let nextNumber
 let gTimer
 let gStartTime
 let gIsTimerRunning = false
+let maxRecord = 0
 
 gameStart()
 
 
-function gameStart(){
+function gameStart() {
     gameInit()
 
     if (gIsTimerRunning) stopTimer()
-        startTimer()
+    startTimer()
 }
 
 function gameInit() {
@@ -26,11 +27,11 @@ function gameInit() {
     renderTable(matrix)
 
     createTableArrays(gSize)
-    
+
     renderNextNumber()
 }
 
-function createTableArrays(size){
+function createTableArrays(size) {
     nums = []
     for (let i = 0; i <= (size * size) - 1; i++) {
         nums[i] = i + 1
@@ -57,7 +58,7 @@ function createSquareMat(size = 3) {
             matrix[i][j] = count++
         }
     }
-    console.table(matrix)
+    // console.table(matrix)
     return matrix
 }
 
@@ -73,31 +74,25 @@ function renderTable(matrix) {
         }
         tableCode += `</td>`
     }
-    console.log(tableCode)
+    // console.log(tableCode)
     tbody.innerHTML = tableCode
 }
 
 function checkCorrectNum(elNum) {
     let pressedNum = +elNum.innerText
 
-    if(gClonedNums.length === 0){
-        console.log('Game Over')
+
+    if (pressedNum === nextNumber) {
+        // console.log('success')
+        gClonedNums.splice(i, 1)
+        if (gClonedNums.length === 0) {
+            gameOver()
+        } else renderNextNumber()
     }
-    for (let i = 0; i <= gClonedNums.length; i++) {
-        if (pressedNum === nextNumber) {
-            // console.log('success')
-            gClonedNums.splice(i, 1)
-            continue
-        }
-    }
-    renderNextNumber()
-    if (gClonedNums.length === 0) {
-        console.log('Game Over')
-        stopTimer()
-    }
+
 }
 
-function newGameBtn(elBtn){
+function newGameBtn(elBtn) {
     gameStart()
 }
 
@@ -108,8 +103,8 @@ function startTimer() {
         const elapsedTime = Date.now() - gStartTime
         const seconds = Math.floor((elapsedTime / 1000) % 60)
         const miliseconds = Math.floor((elapsedTime / (100)) % 60)
-        
-        document.querySelector('.timer').innerText = 
+
+        document.querySelector('.timer').innerText =
             `${seconds.toString().padStart(2, '0')}:${miliseconds.toString().padStart(2, '0')}`
     }, 100)
 }
@@ -119,12 +114,29 @@ function stopTimer() {
     gIsTimerRunning = false
 }
 
-function difficulityBtn(elBtn){
+function difficulityBtn(elBtn) {
     let btnValue = Math.sqrt(+elBtn.innerText)
     console.log(btnValue)
 
-    if(btnValue > gSize || btnValue < gSize){
+    if (btnValue > gSize || btnValue < gSize) {
         gSize = btnValue
         gameStart()
     }
+}
+
+function gameOver() {
+    let nextNum = document.querySelector('.next-num')
+    let time = document.querySelector('.timer').innerText
+    let gameTime = Date.now() - gStartTime
+    
+    console.log(time)
+
+    nextNum.innerText = 'game Over!!'
+    if(gameTime > maxRecord){
+        maxRecord = gameTime
+        confirm('congratulations!! new record: ' + time)
+    }
+
+    stopTimer()
+
 }
